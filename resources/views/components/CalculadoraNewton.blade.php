@@ -5,7 +5,6 @@
         <title>Calculadora</title>
         @vite('resources/js/app.js')
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
         <style>
             body{
                 margin: 0;
@@ -148,22 +147,22 @@
             </div>
             <div class="carousel-container">
                 <div class="carousel-slide">
-                    <img src="/imagenes/PrimerLeyAnimacion.png" />
+                    <img src="/Imagenes/PrimerLeyAnimacion.png" />
                 </div>
                 <div class="carousel-slide">
-                    <img src="/imagenes/InerciaAnimacion.png" />
+                    <img src="/Imagenes/InerciaAnimacion.png" />
                 </div>
                 <div class="carousel-slide">
-                    <img src="/imagenes/SegundaLeyMA.png" />
+                    <img src="/Imagenes/SegundaLeyMA.png" />
                 </div>
                     <div class="carousel-slide">
-                    <img src="/imagenes/SegundaLeyAnimacion.png" />
+                    <img src="/Imagenes/SegundaLeyAnimacion.png" />
                 </div>
                 <div class="carousel-slide">
-                    <img src="/imagenes/TerceraLeyAnimacion.png" />
+                    <img src="/Imagenes/TerceraLeyAnimacion.png" />
                 </div>
                 <div class="carousel-slide">
-                    <img src="/imagenes/AccionYReaccion.png" />
+                    <img src="/Imagenes/AccionYReaccion.png" />
                 </div>
             </div>
         </div>

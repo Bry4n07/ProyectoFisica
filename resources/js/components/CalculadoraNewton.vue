@@ -761,7 +761,7 @@ simular() {
 .sprite {
   width: 97px; /* ancho de un solo frame */
   height: 105px; /* alto de un solo frame */
-  background-image: url('/build/assets/sprites/happy-ghast.png');
+  background-image: url('/sprites/happy-ghast.png'); /* ← sin /build */
   background-repeat: no-repeat;
   background-position: 0 0;
   position: absolute;

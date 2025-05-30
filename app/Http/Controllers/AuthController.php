@@ -45,6 +45,7 @@ class AuthController extends Controller
         }
 
         Auth::login($user);
+        $request->session()->regenerate(); // ✅ Protege contra sesión fijada
         return redirect()->route('Calculadora');
     }
 

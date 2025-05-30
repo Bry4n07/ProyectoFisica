@@ -3,7 +3,8 @@
     "type": "module",
     "scripts": {
         "build": "vite build",
-        "dev": "vite"
+        "dev": "vite",
+        "preview": "vite preview --port 10000"
     },
     "devDependencies": {
         "@vitejs/plugin-vue": "^5.2.4",

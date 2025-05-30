@@ -12,4 +12,5 @@ services:
       value: production
     - key: APP_KEY
       value: base64:jyUzDPBW+W4Sh3W4S3V2SEDersPPyMTk18zOGqJrjvw=
+      
 

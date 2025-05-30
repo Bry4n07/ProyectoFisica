@@ -29,8 +29,8 @@ COPY . .
 # Instalar dependencias de Laravel
 RUN composer install --optimize-autoloader --no-dev
 
-# Generar APP_KEY
-RUN php artisan key:generate
+# No se necesita generar APP_KEY en producción (ya viene desde Render)
+# RUN php artisan key:generate
 
 # Exponer el puerto
 EXPOSE 8000

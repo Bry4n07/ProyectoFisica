@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
   <title>Inicio - Leyes de Newton</title>
   <style>
     :root {
@@ -18,13 +19,13 @@
 
     body {
       margin: 0;
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Quicksand', sans-serif;
       background-color: var(--fondo);
       color: var(--texto-principal);
     }
 
     h1, h2, h3, h4 {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Quicksand', sans-serif;
     }
 
     a {
@@ -46,7 +47,8 @@
     }
 
     header img {
-      width: 40px;
+      width: 29px;
+      height: 28px;
     }
 
     .nav-links a {
@@ -176,7 +178,7 @@
       }
     }
     .CalculadoraPublic_texto {
-        margin-left: -1058px;
+        margin-left: -1337px;
         color: #FFFFFF;
         font-weight: bold;
         padding: 6px 7px;
@@ -186,6 +188,68 @@
         background-color: #D8BFD8;
         border-radius: 10px
     }
+    .perfil-trigger {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        margin-right: -160px;
+        font-family: 'Quicksand', sans-serif;
+        }
+
+    .perfil-trigger img {
+        margin-right: 5px;
+        border-radius: 50%;
+    }
+    .perfil-dropdwon{
+        position: relative;
+        display: inline-block;
+        }
+    .perfil-dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        min-width: 150px;
+        box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+        z-index: 1;
+        border-radius: 8px;
+        overflow: hidden;
+        }
+
+        .perfil-dropdown-content a {
+            color: black;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .perfil-dropdown-content a:hover {
+            background-color: #f1f1f1;
+         }
+
+        .perfil-dropdown:hover .perfil-dropdown-content {
+            display: block;
+        }
+        .boton-logout {
+            border: none;
+            background-color: white;
+            padding: 10px 15px;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .boton-logout:hover {
+            background-color: #f1f1f1;
+            color: #333;
+        }
+        .perfil-nombre {
+            font-size: 16px;
+            font-weight: 600;
+            color: white;
+            font-family: 'Quicksand', sans-serif;
+}
   </style>
 </head>
 <body>
@@ -193,12 +257,25 @@
     <div class="container">
       <a href="{{ route('Inicio') }}">
         <img style= "margin-left: -163px;" src="/Imagenes/fisica.png" alt="Física Logo">
-        <a href="{{ route('CalculadoraPublic') }}" class="CalculadoraPublic_texto">Calculadora</a>
+        <a href="{{ route('Calculadora') }}" class="CalculadoraPublic_texto">Calculadora</a>
       </a>
-      <div class="nav-links">
-        <a  href="{{ route('register') }}">Registrate</a>
-        <a href="{{ route('login') }}">Login</a>
-      </div>
+            <div class="perfil-dropdown">
+                    <div class="perfil-trigger">
+                        <img 
+                            src="{{ Auth::user()->image ? asset('storage/' . Auth::user()->image) : asset('Imagenes/IconoDefaul.png') }}" 
+                            alt="Perfil" 
+                            width="24" 
+                            height="24">
+                            <span class="perfil-nombre">Hola, {{ Auth::user()->name }}</span>
+                        </div>
+                        <div class="perfil-dropdown-content">
+                            <a href="{{ route('perfil.edit') }}" >Perfil</a>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="boton-logout">Cerrar Sesión</button>
+                        </form>
+                </div>
+            </div>
     </div>
   </header>
 

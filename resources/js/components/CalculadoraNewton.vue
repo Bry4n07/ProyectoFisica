@@ -1,7 +1,7 @@
   <template>
     <div class="divCalculadoraP">
       <h1 class="Texto_Inicial">Calcula Las Leyes</h1>
-      <p style="margin: 0px 0px 20px 20px; padding: 0; color:#FFFFFF"> ¿Qué Ley Quieres Calcular? </p>
+      <p style="margin: 0px 0px 20px 53px; padding: 0; color:#FFFFFF;"> ¿Qué Ley Quieres Calcular? </p>
 
       <div class="buttonPosition">
         <button
@@ -191,6 +191,11 @@
         </div>
         <!--Si no se seleccionada nada -->
         <div v-if="leySeleccionada === null" class="pantalla-bienvenida">
+        <!-- Hutao en la parte inferior derecha -->
+        <div class="hutao-container">
+          <div class="speech-bubble-hutao">¡Vamos a descubrir las leyes de Newton!</div>
+          <img :src="HutaoImg" alt="Hutao" class="hutao-img" />
+        </div>
           <!-- Contenedor de Kirby (rosado) -->
         <div class="kirby-container">
           <div class="kirby-bienvenida">¡Bienvenido al mundo de la física!</div>
@@ -214,6 +219,7 @@
   <script>
   import anime from 'animejs';
 
+  import HutaoImg from '@/assets/Hutao.png';
   import KirbyImg from '@/assets/Kirby.png';
   import EstrellaImg from '@/assets/Estrella.png';
   import KirbyMonito from '@/assets/KirbyMonito.png';
@@ -260,6 +266,7 @@
         KirbyMonito: KirbyMonito,
         MasaPrimeraLey: '',
         FuerzaPrimeraLey: '',
+        HutaoImg: HutaoImg,
 
       };
     },
@@ -716,8 +723,8 @@ simular() {
     background-color: #7D5BA6;
     color: white;
     border: none;
-    width: 106px;
-    height: 31px; 
+    width: 114px;
+    height: 39px; 
     cursor: pointer;
     border-radius: 7px;
     font-weight: bold;
@@ -1139,5 +1146,45 @@ simular() {
    margin: 0px 0px 0px 25px; 
    padding: 0;color:#FFFFFF; 
    font-size: 32px;
+   text-shadow: 2px 2px 5px rgba(248, 249, 249)
+}
+.hutao-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 0px 20px -19px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hutao-img {
+  width: 130px;
+  height: auto;
+}
+
+.speech-bubble-hutao {
+  background: #fff;
+  border: 2px solid #555;
+  border-radius: 12px;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  position: relative;
+  font-size: 14px;
+  text-align: center;
+  max-width: 160px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Flechita apuntando hacia abajo (de la burbuja hacia Hutao) */
+.speech-bubble-hutao::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 8px;
+  border-style: solid;
+  border-color: #fff transparent transparent transparent;
 }
 </style>

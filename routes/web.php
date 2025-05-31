@@ -11,6 +11,10 @@ Route::get('/', function () {
     }
     return redirect()->route('login.form');
 })->name('Inicio');
+Route::get('/CalculadoraPublic', function () {
+    return view('calculadorapublic');
+})->name('CalculadoraPublic');
+
 
 Route::get('/Inicio', [AuthController::class, 'showInicio'])->name('InicioSinSesion');
 
@@ -29,6 +33,11 @@ Route::middleware(['auth'])->group(function () {
         Route::get('Calculadora', function () {
         return view('components.CalculadoraNewton');
         })->name('Calculadora');
+        
+        Route::get('LeyesRegistered', function () {
+        return view('components.LeyesRegistered');
+        })->name('LeyesRegistered');
+
         Route::get('/perfil', [ProfileController::class, 'edit'])->name('perfil.edit');
         Route::post('/perfil', [ProfileController::class, 'update'])->name('perfil.update');
         Route::get('/export-word', [LeyesWordExportController::class, 'export'])->name('export.word');

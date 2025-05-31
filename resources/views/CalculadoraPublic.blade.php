@@ -122,23 +122,7 @@
                 <a href="{{ route('Inicio') }}">
                     <img src="/Imagenes/fisica.png" width="33" height="auto" style="margin-left: 15px;">
                     </a>
-                    <a href="{{ route( 'LeyesRegistered') }}" style="margin-right: 1200px"> Leyes de newton</a>
                     <div class="perfil-dropdown">
-                        <div class="perfil-trigger">
-                            <img 
-                                src="{{ Auth::user()->image ? asset('storage/' . Auth::user()->image) : asset('Imagenes/IconoDefaul.png') }}" 
-                                alt="Perfil" 
-                                width="24" 
-                                height="24">
-                                Hola, {{ Auth::user()->name }}
-                        </div>
-                        <div class="perfil-dropdown-content">
-                            <a href="{{ route('perfil.edit') }}">Perfil</a>
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-                                <button type="submit" class="boton-logout">Cerrar Sesión</button>
-                            </form>
-                    </div>
                 </div>
             </div>
         </header>

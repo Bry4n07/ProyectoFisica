@@ -1,23 +1,26 @@
-import { defineConfig } from 'vite';
-import laravel from 'laravel-vite-plugin';
-import vue from '@vitejs/plugin-vue';
+    import { defineConfig } from 'vite';
+    import laravel from 'laravel-vite-plugin';
+    import vue from '@vitejs/plugin-vue';
 
-export default defineConfig({
-    plugins: [
-        laravel({
-            input: ['resources/css/app.css', 'resources/js/app.js'],
-            refresh: true,
-        }),
-        vue(),
-    ],
-    resolve: {
-        alias: {
-            '@': '/resources/js',
+    export default defineConfig({
+        plugins: [
+            laravel({
+                input: ['resources/css/app.css', 'resources/js/app.js'],
+                refresh: true,
+            }),
+            vue(),
+        ],
+        resolve: {
+            alias: {
+                '@': '/resources/js',
+            },
         },
-    },
-    preview: {
-        host: '0.0.0.0',
-        port: 10000,
-        allowedHosts: ['proyectofisica.onrender.com']
-    }
-});
+        preview: {
+            host: '0.0.0.0',
+            port: 10000,
+            allowedHosts: ['proyectofisica.onrender.com']
+        },
+        optimizeDeps: {
+            include: ['animejs']
+        }
+    });

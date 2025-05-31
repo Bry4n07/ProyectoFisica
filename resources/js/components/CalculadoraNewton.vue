@@ -1,6 +1,6 @@
   <template>
     <div class="divCalculadoraP">
-      <h1 style="margin: 0px 0px 0px 25px; padding: 0;color:#FFFFFF">Calcula Las Leyes</h1>
+      <h1 class="Texto_Inicial">Calcula Las Leyes</h1>
       <p style="margin: 0px 0px 20px 20px; padding: 0; color:#FFFFFF"> ¿Qué Ley Quieres Calcular? </p>
 
       <div class="buttonPosition">
@@ -211,9 +211,10 @@
         </div>
     </div>
   </template>
-
   <script>
-  import KirbyImg from '@/assets/Kirby.png'; 
+  import anime from 'animejs';
+
+  import KirbyImg from '@/assets/Kirby.png';
   import EstrellaImg from '@/assets/Estrella.png';
   import KirbyMonito from '@/assets/KirbyMonito.png';
   export default {
@@ -257,6 +258,9 @@
         KirbyImg: KirbyImg,
         EstrellaImg: EstrellaImg,
         KirbyMonito: KirbyMonito,
+        MasaPrimeraLey: '',
+        FuerzaPrimeraLey: '',
+
       };
     },
     watch: {
@@ -357,12 +361,21 @@ simular() {
   this.distanciaCalculada = distancia.toFixed(2);
 
   // 🔴 Reset: detener animaciones anteriores
+  
   anime.remove(sprite);
   if (this.spriteInterval) clearInterval(this.spriteInterval);
   sprite.style.transition = 'none';
   sprite.style.transform = `translateX(-${spriteWidth}px)`;
   sprite.style.visibility = 'hidden';
   sprite.style.backgroundPosition = '0px 0px';
+  // si hay error borrar y quitar de comentario lo de arriba
+      
+  /*animeRemove(sprite);
+      if (this.spriteInterval) clearInterval(this.spriteInterval);
+      sprite.style.transition       = 'none';
+      sprite.style.transform        = `translateX(-${spriteWidth}px)`;
+      sprite.style.visibility       = 'hidden';
+      sprite.style.backgroundPosition = '0px 0px';*/
 
   // Animar el sprite (frames)
   const spriteFrameWidth = 98;
@@ -915,8 +928,8 @@ simular() {
 /* Estrella arriba */
 .estrella-superior {
   position: absolute;
-  top: 19px;
-  left: 38vw; /* Más seguro que 86vw para no desaparecer */
+  top: -70px;
+  left: 37vw; /* Más seguro que 86vw para no desaparecer */
   z-index: 10;
 }
 
@@ -1120,5 +1133,11 @@ simular() {
     min-height: 300px; /* o el valor que prefieras */
     padding: 30px 20px; /* también puedes ajustar el padding si es necesario */
   }
+}
+
+.Texto_Inicial{
+   margin: 0px 0px 0px 25px; 
+   padding: 0;color:#FFFFFF; 
+   font-size: 32px;
 }
 </style>

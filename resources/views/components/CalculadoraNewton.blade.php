@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Calculadora</title>
-        @vite('resources/js/app.js')
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
         <style>
             body{
@@ -125,7 +125,7 @@
                     <div class="perfil-dropdown">
                         <div class="perfil-trigger">
                             <img 
-                                src="{{ Auth::user()->image ? asset(Auth::user()->image) : asset('Imagenes/IconoDefaul.png') }}" 
+                                src="{{ Auth::user()->image ? asset('storage/' . Auth::user()->image) : asset('Imagenes/IconoDefaul.png') }}" 
                                 alt="Perfil" 
                                 width="24" 
                                 height="24">
@@ -169,6 +169,7 @@
         <div id="app"></div> 
         
         <script>
+            
         let slideIndex = 0;
         carousel();
 

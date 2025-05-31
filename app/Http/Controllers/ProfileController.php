@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
@@ -50,6 +51,13 @@ class ProfileController extends Controller
         }
 
         if ($request->hasFile('image')) {
+            // Si el usuario tiene una imagen anterior y no es la de defecto
+            if ($user->image && $user->image !== 'Imagenes/IconoDefaul.png') {
+                // Eliminar imagen anterior
+                Storage::disk('public')->delete($user->image);
+            }
+
+            // Guardar la nueva imagen
             $user->image = $request->file('image')->store('images', 'public');
         }
 

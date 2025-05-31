@@ -228,7 +228,7 @@
                 <div id="editar-foto">
                     <label for="image">Imagen de perfil:</label><br>
                     @if ($user->image)
-                        <img src="{{ asset($user->image) }}" alt="Imagen actual" id="current-image"><br>
+                        <img src="{{ $user->image ? asset('storage/' . $user->image) : asset('Imagenes/IconoDefaul.png') }}" alt="Imagen actual" id="current-image"><br>
                     @endif
                     <input type="file" name="image" id="image" accept="image/*">
                     @error('image') <div class="error-message">{{ $message }}</div> @enderror
